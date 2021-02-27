@@ -33,7 +33,7 @@
 					"urlencoded": [
 						{
 							"key": "name",
-							"value": "Esteban",
+							"value": "Daniel",
 							"type": "text"
 						},
 						{
@@ -48,7 +48,7 @@
 						},
 						{
 							"key": "email",
-							"value": "invite@gmail.com",
+							"value": "test@gmail.com",
 							"type": "text"
 						},
 						{
@@ -59,7 +59,8 @@
 						{
 							"key": "idSite",
 							"value": "1",
-							"type": "text"
+							"type": "text",
+							"disabled": true
 						}
 					]
 				},
@@ -86,15 +87,13 @@
 					"urlencoded": [
 						{
 							"key": "name",
-							"value": "Esteban Alejandro",
-							"type": "text",
-							"disabled": true
+							"value": "Esteban",
+							"type": "text"
 						},
 						{
 							"key": "lastname",
 							"value": "Valencia",
-							"type": "text",
-							"disabled": true
+							"type": "text"
 						},
 						{
 							"key": "admin",
@@ -104,25 +103,23 @@
 						{
 							"key": "email",
 							"value": "esteban@gmail.com",
-							"type": "text",
-							"disabled": true
+							"type": "text"
 						},
 						{
 							"key": "idSite",
 							"value": "1",
-							"type": "text",
-							"disabled": true
+							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "{{url}}/users/2",
+					"raw": "{{url}}/users/1",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"users",
-						"2"
+						"1"
 					]
 				}
 			},
@@ -156,7 +153,7 @@
 					"urlencoded": [
 						{
 							"key": "email",
-							"value": "admin@gmail.com",
+							"value": "test@gmail.com",
 							"type": "text"
 						},
 						{
@@ -186,7 +183,7 @@
 				"header": [
 					{
 						"key": "user-token",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjEsImNyZWF0ZUF0IjoxNjE0Mzg4NzYzLCJleHBpcmVBdCI6MTYxNDQxNzU2M30.CjiJordo9ufTR1TVNR8TZbluh0OTjDqCf3R8qGxsvjU",
+						"value": "Aquí va el token que se genera en el recurso User Login",
 						"type": "text"
 					}
 				],
@@ -209,7 +206,7 @@
 				"header": [
 					{
 						"key": "user-token",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjEsImNyZWF0ZUF0IjoxNjE0Mzg4NzYzLCJleHBpcmVBdCI6MTYxNDQxNzU2M30.CjiJordo9ufTR1TVNR8TZbluh0OTjDqCf3R8qGxsvjU",
+						"value": "Aquí va el token que se genera en el recurso User Login",
 						"type": "text"
 					}
 				],
@@ -242,7 +239,7 @@
 				"header": [
 					{
 						"key": "user-token",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjEsImNyZWF0ZUF0IjoxNjE0MzgyODg0LCJleHBpcmVBdCI6MTYxNDQxMTY4NH0.xIwkZ9RaalCBPJNcF6537gaAO80MYWemNBCmYnc6Bgc",
+						"value": "Aquí va el token que se genera en el recurso User Login",
 						"type": "text"
 					}
 				],
@@ -301,7 +298,7 @@
 					{
 						"key": "user-token",
 						"type": "text",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjEsImNyZWF0ZUF0IjoxNjE0Mzg4NzYzLCJleHBpcmVBdCI6MTYxNDQxNzU2M30.CjiJordo9ufTR1TVNR8TZbluh0OTjDqCf3R8qGxsvjU"
+						"value": "Aquí va el token que se genera en el recurso User Login"
 					}
 				],
 				"url": {
@@ -324,7 +321,7 @@
 					{
 						"key": "user-token",
 						"type": "text",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjEsImNyZWF0ZUF0IjoxNjE0Mzg4NzYzLCJleHBpcmVBdCI6MTYxNDQxNzU2M30.CjiJordo9ufTR1TVNR8TZbluh0OTjDqCf3R8qGxsvjU"
+						"value": "Aquí va el token que se genera en el recurso User Login"
 					}
 				],
 				"body": {
@@ -362,7 +359,7 @@
 					{
 						"key": "user-token",
 						"type": "text",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjEsImNyZWF0ZUF0IjoxNjE0MzgyODg0LCJleHBpcmVBdCI6MTYxNDQxMTY4NH0.xIwkZ9RaalCBPJNcF6537gaAO80MYWemNBCmYnc6Bgc"
+						"value": "Aquí va el token que se genera en el recurso User Login"
 					}
 				],
 				"body": {
@@ -370,12 +367,12 @@
 					"urlencoded": [
 						{
 							"key": "address",
-							"value": "Ciudad Tunal",
+							"value": "Calle 45 # 12 - 45",
 							"type": "text"
 						},
 						{
 							"key": "idCity",
-							"value": "3",
+							"value": "1",
 							"type": "text"
 						}
 					]
@@ -401,17 +398,17 @@
 					{
 						"key": "user-token",
 						"type": "text",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjEsImNyZWF0ZUF0IjoxNjE0MzgyODg0LCJleHBpcmVBdCI6MTYxNDQxMTY4NH0.xIwkZ9RaalCBPJNcF6537gaAO80MYWemNBCmYnc6Bgc"
+						"value": "Aquí va el token que se genera en el recurso User Login"
 					}
 				],
 				"url": {
-					"raw": "{{url}}/sites/4",
+					"raw": "{{url}}/sites/1",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"sites",
-						"4"
+						"1"
 					]
 				}
 			},
