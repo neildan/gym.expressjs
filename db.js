@@ -1,6 +1,8 @@
 const Sequelize = require('sequelize')
 
 const UserModel = require('./models/users')
+const CityModel = require('./models/cities')
+const SiteModel = require('./models/sites')
 
 const sequelize = new Sequelize('LVnxuhynWT', 'LVnxuhynWT', 'D5KOZFXDl5', {
     host: 'remotemysql.com',
@@ -8,6 +10,8 @@ const sequelize = new Sequelize('LVnxuhynWT', 'LVnxuhynWT', 'D5KOZFXDl5', {
 })
 
 const User = UserModel(sequelize, Sequelize)
+const City = CityModel(sequelize, Sequelize)
+const Site = SiteModel(sequelize, Sequelize)
 
 sequelize.sync({
     force: false
@@ -16,5 +20,7 @@ sequelize.sync({
 })
 
 module.exports = {
-    User
+    User,
+    City,
+    Site
 }
