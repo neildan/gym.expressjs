@@ -1,0 +1,427 @@
+{
+	"info": {
+		"_postman_id": "dba3f11b-430c-438b-9b2d-6695456c8309",
+		"name": "Adecco",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/users",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users"
+					]
+				},
+				"description": "Get all users"
+			},
+			"response": []
+		},
+		{
+			"name": "Users create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Esteban",
+							"type": "text"
+						},
+						{
+							"key": "lastname",
+							"value": "Valencia",
+							"type": "text"
+						},
+						{
+							"key": "admin",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "invite@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "testjs123",
+							"type": "text"
+						},
+						{
+							"key": "idSite",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/users/register",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Users Update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Esteban Alejandro",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "lastname",
+							"value": "Valencia",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "admin",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "esteban@gmail.com",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "idSite",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/users/2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Users delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/users/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "admin@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "testjs123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/users/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cities",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "user-token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjEsImNyZWF0ZUF0IjoxNjE0Mzg4NzYzLCJleHBpcmVBdCI6MTYxNDQxNzU2M30.CjiJordo9ufTR1TVNR8TZbluh0OTjDqCf3R8qGxsvjU",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/cities",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"cities"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cities Create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "user-token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjEsImNyZWF0ZUF0IjoxNjE0Mzg4NzYzLCJleHBpcmVBdCI6MTYxNDQxNzU2M30.CjiJordo9ufTR1TVNR8TZbluh0OTjDqCf3R8qGxsvjU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Bogotá",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/cities",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"cities"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cities Update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "user-token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjEsImNyZWF0ZUF0IjoxNjE0MzgyODg0LCJleHBpcmVBdCI6MTYxNDQxMTY4NH0.xIwkZ9RaalCBPJNcF6537gaAO80MYWemNBCmYnc6Bgc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Bogotá D.C",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/cities/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"cities",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cities Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "user-token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjEsImNyZWF0ZUF0IjoxNjE0MzgyODg0LCJleHBpcmVBdCI6MTYxNDQxMTY4NH0.xIwkZ9RaalCBPJNcF6537gaAO80MYWemNBCmYnc6Bgc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/cities/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"cities",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sites",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "user-token",
+						"type": "text",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjEsImNyZWF0ZUF0IjoxNjE0Mzg4NzYzLCJleHBpcmVBdCI6MTYxNDQxNzU2M30.CjiJordo9ufTR1TVNR8TZbluh0OTjDqCf3R8qGxsvjU"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/sites",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"sites"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sites Create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "user-token",
+						"type": "text",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjEsImNyZWF0ZUF0IjoxNjE0Mzg4NzYzLCJleHBpcmVBdCI6MTYxNDQxNzU2M30.CjiJordo9ufTR1TVNR8TZbluh0OTjDqCf3R8qGxsvjU"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "address",
+							"value": "Calle 150 # 68 Sur",
+							"type": "text"
+						},
+						{
+							"key": "idCity",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/sites",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"sites"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sites Update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "user-token",
+						"type": "text",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjEsImNyZWF0ZUF0IjoxNjE0MzgyODg0LCJleHBpcmVBdCI6MTYxNDQxMTY4NH0.xIwkZ9RaalCBPJNcF6537gaAO80MYWemNBCmYnc6Bgc"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "address",
+							"value": "Ciudad Tunal",
+							"type": "text"
+						},
+						{
+							"key": "idCity",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/sites/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"sites",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sites Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "user-token",
+						"type": "text",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjEsImNyZWF0ZUF0IjoxNjE0MzgyODg0LCJleHBpcmVBdCI6MTYxNDQxMTY4NH0.xIwkZ9RaalCBPJNcF6537gaAO80MYWemNBCmYnc6Bgc"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/sites/4",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"sites",
+						"4"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:3000/api"
+		}
+	]
+}
