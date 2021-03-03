@@ -1,14 +1,18 @@
 # AdeccoApi
  Api Node Js with Express
 # Daniel Valencia - FullStack Developer
-Email: danielfelipeluis@outlook.com
+Email: `danielfelipeluis@outlook.com`
 ## Colección Postman:
 En la raíz del proyecto se encuentra "Adecco.postman_collection.json".
 
-## Correr Proyecto:
-Requisitos:
-Tener GIT y Docker instalados.
+## Requisitos:
+Tener GIT y Docker.
 
+Links de descarga:
+1. Git: `https://git-scm.com/downloads`
+2. Docker: `https://www.docker.com/products/docker-desktop` (Al finalizar reiniciar)
+
+## Correr Proyecto:
 Descargar este código con `git clone https://github.com/neildan/AdeccoApi.git`
 Posicionarse en el proyecto y ejecutar los siguientes comandos:
 1. `docker build -t apiadecco .`
