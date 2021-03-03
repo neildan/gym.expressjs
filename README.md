@@ -9,10 +9,10 @@ En la raíz del proyecto se encuentra "Adecco.postman_collection.json".
 Requisitos:
 Tener GIT y Docker instalados.
 
-Descargar este código con git clone https://github.com/neildan/AdeccoApi.git
+Descargar este código con `git clone https://github.com/neildan/AdeccoApi.git`
 Posicionarse en el proyecto y ejecutar los siguientes comandos:
-1. "docker build -t apiadecco ."
-2. "docker run --publish 3000:3000 apiadecco"
+1. `docker build -t apiadecco .`
+2. `docker run --publish 3000:3000 apiadecco`
 
 ## Aclaraciones:
 
