@@ -6,10 +6,104 @@
 	},
 	"item": [
 		{
+			"name": "Auth Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Invitado",
+							"type": "text"
+						},
+						{
+							"key": "lastname",
+							"value": "Sistema",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "test@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "testjs123",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/auth/register",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Auth Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "admin@js.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "adminjs1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/auth/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Users",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "user-token",
+						"value": "Aquí va el token que se genera en el recurso User Login",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "{{url}}/users",
 					"host": [
@@ -27,7 +121,13 @@
 			"name": "User Get",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "user-token",
+						"value": "Aquí va el token que se genera en el recurso User Login",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "{{url}}/users/1",
 					"host": [
@@ -45,18 +145,24 @@
 			"name": "Users create",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "user-token",
+						"value": "Aquí va el token que se genera en el recurso User Login",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "urlencoded",
 					"urlencoded": [
 						{
 							"key": "name",
-							"value": "Daniel",
+							"value": "Admin 2",
 							"type": "text"
 						},
 						{
 							"key": "lastname",
-							"value": "Valencia",
+							"value": "Sistema",
 							"type": "text"
 						},
 						{
@@ -66,30 +172,29 @@
 						},
 						{
 							"key": "email",
-							"value": "test@gmail.com",
+							"value": "admin2@js.com",
 							"type": "text"
 						},
 						{
 							"key": "password",
-							"value": "testjs123",
+							"value": "adminjs2",
 							"type": "text"
 						},
 						{
-							"key": "idSite",
+							"key": "siteId",
 							"value": "1",
-							"type": "text",
-							"disabled": true
+							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "{{url}}/users/register",
+					"raw": "{{url}}/users/",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"users",
-						"register"
+						""
 					]
 				}
 			},
@@ -99,28 +204,34 @@
 			"name": "Users Update",
 			"request": {
 				"method": "PUT",
-				"header": [],
+				"header": [
+					{
+						"key": "user-token",
+						"value": "Aquí va el token que se genera en el recurso User Login",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "urlencoded",
 					"urlencoded": [
 						{
 							"key": "name",
-							"value": "Esteban",
+							"value": "Admin",
 							"type": "text"
 						},
 						{
 							"key": "lastname",
-							"value": "Valencia",
+							"value": "Sistema",
 							"type": "text"
 						},
 						{
 							"key": "admin",
-							"value": "false",
+							"value": "true",
 							"type": "text"
 						},
 						{
 							"key": "email",
-							"value": "esteban@gmail.com",
+							"value": "admin@js.com",
 							"type": "text"
 						},
 						{
@@ -147,48 +258,21 @@
 			"name": "Users delete",
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"key": "user-token",
+						"value": "Aquí va el token que se genera en el recurso User Login",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": "{{url}}/users/1",
+					"raw": "{{url}}/users/3",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"users",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "User Login",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "email",
-							"value": "admin@gmail.com",
-							"type": "text"
-						},
-						{
-							"key": "password",
-							"value": "testjs123",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "{{url}}/users/login",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"users",
-						"login"
+						"3"
 					]
 				}
 			},
@@ -257,7 +341,7 @@
 					"urlencoded": [
 						{
 							"key": "name",
-							"value": "Bogotá",
+							"value": "Medellin",
 							"type": "text"
 						}
 					]
@@ -290,7 +374,7 @@
 					"urlencoded": [
 						{
 							"key": "name",
-							"value": "Bogotá D.C",
+							"value": "Cali",
 							"type": "text"
 						}
 					]
@@ -315,18 +399,18 @@
 				"header": [
 					{
 						"key": "user-token",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjEsImNyZWF0ZUF0IjoxNjE0MzgyODg0LCJleHBpcmVBdCI6MTYxNDQxMTY4NH0.xIwkZ9RaalCBPJNcF6537gaAO80MYWemNBCmYnc6Bgc",
+						"value": "Aquí va el token que se genera en el recurso User Login",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "{{url}}/cities/1",
+					"raw": "{{url}}/cities/2",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"cities",
-						"1"
+						"2"
 					]
 				}
 			},
@@ -344,12 +428,38 @@
 					}
 				],
 				"url": {
-					"raw": "{{url}}/sites",
+					"raw": "{{url}}/sites/",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
-						"sites"
+						"sites",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sites Users",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "user-token",
+						"type": "text",
+						"value": "Aquí va el token que se genera en el recurso User Login"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/sites/users/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"sites",
+						"users",
+						"1"
 					]
 				}
 			},
@@ -399,7 +509,7 @@
 							"type": "text"
 						},
 						{
-							"key": "idCity",
+							"key": "cityId",
 							"value": "1",
 							"type": "text"
 						}
@@ -433,7 +543,7 @@
 					"urlencoded": [
 						{
 							"key": "address",
-							"value": "Calle 45 # 12 - 45",
+							"value": "Calle 45 # 12 - 45 Este",
 							"type": "text"
 						},
 						{
@@ -444,13 +554,13 @@
 					]
 				},
 				"url": {
-					"raw": "{{url}}/sites/1",
+					"raw": "{{url}}/sites/2",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"sites",
-						"1"
+						"2"
 					]
 				}
 			},
@@ -468,13 +578,13 @@
 					}
 				],
 				"url": {
-					"raw": "{{url}}/sites/1",
+					"raw": "{{url}}/sites/2",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"sites",
-						"1"
+						"2"
 					]
 				}
 			},
