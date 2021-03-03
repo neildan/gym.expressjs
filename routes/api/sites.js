@@ -1,13 +1,28 @@
 const router = require('express').Router()
 const { Site, City } = require('../../db')
 const { check, validationResult } = require('express-validator')
+const trait = require('../trait')
 
 /**
  * Get all sites
  */
 router.get('/', async(req, res) => {
-    let sites = await Site.findAll()
-    res.json(sites)
+    let sites = await Site.findAll({ include: 'city' })
+    res.json(trait.success(sites, 'ok'))
+})
+
+/**
+ * Get a site
+ */
+router.get('/:siteId', async(req, res) => {
+    try {
+        let site = await Site.findOne({ where: { id: req.params.siteId } })
+        if (!site) throw { data: {}, msj: 'La sede no existe' }
+
+        res.json(trait.success(site, 'ok'))
+    } catch (e) {
+        res.json(trait.error(e.data, e.msj))
+    }
 })
 
 /**
@@ -15,16 +30,21 @@ router.get('/', async(req, res) => {
  */
 router.post('/', [
     check('address', 'La dirección es obligatoria con minimo 4 letras').not().isEmpty().isLength({ min: 4 }),
-    check('idCity', 'La cuidad es obligatoria').not().isEmpty()
+    check('cityId', 'La cuidad es obligatoria').not().isEmpty()
 ], async(req, res) => {
-    let error = validationResult(req);
-    if (!error.isEmpty()) return res.status(422).json({ error: error.array() })
+    try {
+        let errors = validationResult(req)
+        if (!errors.isEmpty()) throw { data: errors, msj: 'Error Validation' }
 
-    let city = await City.findOne({ where: { id: req.body.idCity } })
-    if (!city) return res.json({ error: 'No se encontro esa ciudad' })
+        let city = await City.findOne({ where: { id: req.body.cityId } })
+        if (!city) throw { data: {}, msj: 'La ciudad no existe' }
 
-    let site = await Site.create(req.body)
-    res.json(site)
+        let site = await Site.create(req.body)
+
+        res.json(trait.success(site, 'ok'))
+    } catch (e) {
+        res.json(trait.error(e.data, e.msj))
+    }
 })
 
 /**
@@ -32,30 +52,44 @@ router.post('/', [
  */
 router.put('/:siteId', [
     check('address', 'La dirección no puede tener menos de 4 caracteres').optional().isLength({ min: 4 }),
-    check('idCity', 'La ciudad no puede estar vacia').optional().isInt({ min: 1 })
+    check('cityId', 'La ciudad no puede estar vacia').optional().isInt({ min: 1 })
 ], async(req, res) => {
-    let error = validationResult(req);
-    if (!error.isEmpty()) return res.status(422).json({ error: error.array() })
+    try {
+        let errors = validationResult(req)
+        if (!errors.isEmpty()) throw { data: errors, msj: 'Error Validation' }
 
-    if (req.body.idCity) {
-        let city = await City.findOne({ where: { id: req.body.idCity } })
-        if (!city) return res.json({ error: 'No se encontro esa ciudad' })
+        if (req.body.cityId) {
+            let city = await City.findOne({ where: { id: req.body.cityId } })
+            if (!city) throw { data: {}, msj: 'La ciudad no existe' }
+        }
+
+        let site = await Site.findOne({ where: { id: req.params.siteId } })
+        if (!site) throw { data: {}, msj: 'La sede no existe' }
+
+        await Site.update(req.body, {
+            where: { id: req.params.siteId }
+        })
+        res.json(trait.success({}, 'ok'))
+    } catch (e) {
+        res.json(trait.error(e.data, e.msj))
     }
-
-    await Site.update(req.body, {
-        where: { id: req.params.siteId }
-    })
-    res.json({ success: 'Se ha modificado' })
 })
 
 /**
  * Delete a site
  */
 router.delete('/:siteId', async(req, res) => {
-    await Site.destroy({
-        where: { id: req.params.siteId }
-    })
-    res.json({ success: 'Se ha borrado' })
+    try {
+        let site = await Site.findOne({ where: { id: req.params.siteId } })
+        if (!site) throw { data: {}, msj: 'La sede no existe' }
+
+        await Site.destroy({
+            where: { id: req.params.siteId }
+        })
+        res.json(trait.success({}, 'ok'))
+    } catch (e) {
+        res.json(trait.error(e.data, e.msj))
+    }
 })
 
 module.exports = router

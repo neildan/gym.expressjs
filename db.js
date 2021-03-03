@@ -6,7 +6,8 @@ const SiteModel = require('./models/sites')
 
 const sequelize = new Sequelize('LVnxuhynWT', 'LVnxuhynWT', 'D5KOZFXDl5', {
     host: 'remotemysql.com',
-    dialect: 'mysql'
+    dialect: 'mysql',
+    logging: false
 })
 
 const User = UserModel(sequelize, Sequelize)

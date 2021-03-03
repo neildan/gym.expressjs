@@ -1,4 +1,4 @@
-const sequalize = require('sequelize')
+const sequalize = require('sequelize');
 
 module.exports = (sequelize, type) => {
     const City = sequelize.define('city', {
@@ -11,17 +11,6 @@ module.exports = (sequelize, type) => {
             type: type.STRING,
             allowNull: false,
         }
-    }, {
-        classMethods: {
-            associate(models) {
-                City.hasMany(models.Site, {
-                    foreignKey: {
-                        name: 'idSite',
-                        allowNull: true,
-                    },
-                });
-            },
-        },
     });
     return City;
 };

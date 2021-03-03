@@ -27,22 +27,7 @@ module.exports = (sequelize, type) => {
         password: {
             type: type.STRING(150),
             allowNull: false
-        },
-        idSite: {
-            type: type.INTEGER,
-            allowNull: true,
         }
-    }, {
-        classMethods: {
-            associate(models) {
-                User.belongsTo(models.Site, {
-                    foreignKey: {
-                        name: 'idSite',
-                        allowNull: true,
-                    },
-                });
-            },
-        },
     });
     return User;
 };

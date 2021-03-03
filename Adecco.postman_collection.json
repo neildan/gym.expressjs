@@ -24,6 +24,24 @@
 			"response": []
 		},
 		{
+			"name": "User Get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/users/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Users create",
 			"request": {
 				"method": "POST",
@@ -153,7 +171,7 @@
 					"urlencoded": [
 						{
 							"key": "email",
-							"value": "test@gmail.com",
+							"value": "admin@gmail.com",
 							"type": "text"
 						},
 						{
@@ -194,6 +212,30 @@
 					],
 					"path": [
 						"cities"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cities Get",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "user-token",
+						"type": "text",
+						"value": "Aquí va el token que se genera en el recurso User Login"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/cities/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"cities",
+						"1"
 					]
 				}
 			},
@@ -308,6 +350,30 @@
 					],
 					"path": [
 						"sites"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sites Get",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "user-token",
+						"type": "text",
+						"value": "Aquí va el token que se genera en el recurso User Login"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/sites/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"sites",
+						"1"
 					]
 				}
 			},

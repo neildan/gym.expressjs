@@ -1,13 +1,28 @@
 const router = require('express').Router()
 const { City } = require('../../db')
 const { check, validationResult } = require('express-validator')
+const trait = require('../trait')
 
 /**
  * Get all cities
  */
 router.get('/', async(req, res) => {
     let cities = await City.findAll()
-    res.json(cities)
+    res.json(trait.success(cities, 'ok'))
+})
+
+/**
+ * Get a citiy
+ */
+router.get('/:cityId', async(req, res) => {
+    try {
+        let city = await City.findOne({ where: { id: req.params.cityId } })
+        if (!city) throw { data: {}, msj: 'La ciudad no existe' }
+
+        res.json(trait.success(city, 'ok'))
+    } catch (e) {
+        res.json(trait.error(e.data, e.msj))
+    }
 })
 
 /**
@@ -16,10 +31,15 @@ router.get('/', async(req, res) => {
 router.post('/', [
     check('name', 'El nombre es obligatorio con minimo 2 letras').not().isEmpty().isLength({ min: 2 }),
 ], async(req, res) => {
-    let error = validationResult(req);
-    if (!error.isEmpty()) return res.status(422).json({ error: error.array() })
-    let city = await City.create(req.body)
-    res.json(city)
+    try {
+        let errors = validationResult(req)
+        if (!errors.isEmpty()) throw { data: errors, msj: 'Error Validation' }
+
+        let city = await City.create(req.body)
+        res.json(trait.success(city, 'ok'))
+    } catch (e) {
+        res.json(trait.error(e.data, e.msj))
+    }
 })
 
 /**
@@ -28,22 +48,37 @@ router.post('/', [
 router.put('/:cityId', [
     check('name', 'El campo nombre no puede tener menos de 2 caracteres').optional().isLength({ min: 2 }),
 ], async(req, res) => {
-    let error = validationResult(req);
-    if (!error.isEmpty()) return res.status(422).json({ error: error.array() })
-    await City.update(req.body, {
-        where: { id: req.params.cityId }
-    })
-    res.json({ success: 'Se ha modificado' })
+    try {
+        let errors = validationResult(req)
+        if (!errors.isEmpty()) throw { data: errors, msj: 'Error Validation' }
+
+        let city = await City.findOne({ where: { id: req.params.cityId } })
+        if (!city) throw { data: {}, msj: 'La ciudad no existe' }
+
+        await City.update(req.body, {
+            where: { id: req.params.cityId }
+        })
+        res.json(trait.success({}, 'ok'))
+    } catch (e) {
+        res.json(trait.error(e.data, e.msj))
+    }
 })
 
 /**
  * Delete a city
  */
 router.delete('/:cityId', async(req, res) => {
-    await City.destroy({
-        where: { id: req.params.cityId }
-    })
-    res.json({ success: 'Se ha borrado' })
+    try {
+        let city = await City.findOne({ where: { id: req.params.cityId } })
+        if (!city) throw { data: {}, msj: 'La ciudad no existe' }
+
+        await City.destroy({
+            where: { id: req.params.cityId }
+        })
+        res.json(trait.success({}, 'ok'))
+    } catch (e) {
+        res.json(trait.error(e.data, e.msj))
+    }
 })
 
 module.exports = router
