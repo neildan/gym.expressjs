@@ -51,6 +51,9 @@ router.post('/', [
         let site = await Site.findOne({ where: { id: req.body.siteId } })
         if (!site) throw { data: {}, msj: 'La sede no existe' }
 
+        let usersSite = await User.findAll({ where: { siteId: req.body.siteId } })
+        if (usersSite.length == 300) throw { data: {}, msj: 'Se puede un máximo de 300 clientes por sede' }
+
         req.body.password = bcrypt.hashSync(req.body.password, 10)
         let user = await User.create(req.body)
 
