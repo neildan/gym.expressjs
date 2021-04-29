@@ -4,7 +4,7 @@ const UserModel = require('./models/users')
 const CityModel = require('./models/cities')
 const SiteModel = require('./models/sites')
 
-const sequelize = new Sequelize('LVnxuhynWT', 'LVnxuhynWT', 'D5KOZFXDl5', {
+const sequelize = new Sequelize('O2VUW7YdTX', 'O2VUW7YdTX', 'RCmFquxag4', {
     host: 'remotemysql.com',
     dialect: 'mysql',
     logging: false
