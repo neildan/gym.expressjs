@@ -55,7 +55,8 @@ router.post('/login', [
 
         res.json(trait.success({
             token: createToken(user),
-            username: user.name + ' ' + user.lastname
+            username: user.name + ' ' + user.lastname,
+            admin: user.admin
         }, 'ok'))
     } catch (e) {
         res.json(trait.error(e.data, e.msj))
